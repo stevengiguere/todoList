@@ -6,26 +6,32 @@
     <!-- TODO : afficher la date au complet en francais 'chercher pour localeDateString' -->
     <h1 name="header" style="color:blue;"><%= itsToday %></h1>
 
-    <!-- List -->
+    <!-- Alltasks on the list -- Begin -->
     <ul class="list-group">
 
         <!-- eachTask -->
         <% for ( i = 0 ; i < newTask.length ; i++) { %>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" id="checkbox<%= i %>">
-            <label class="form-check-label stretched-link" for="checkbox<%= i %>"><%= newTask[i] %></label>
+        <li class="list-group-item list-group-item-dark">
+            <label class="form-check-label stretched-link" for="checkbox<%= i %>">
+                <input class="form-check-input me-1" type="checkbox" value="" id="checkbox<%= i %>">
+                <p class="task"> <%= newTask[i] %></p>
+            </label>
         </li>
         <% } %>
-    </ul>
-    <!-- List -->
 
+    </ul>
+    <!-- Alltasks on the list -- END -->
+
+    <!-- Adding a new task to the list -- BEGIN -->
     <div class="input-group mb-3">
         <form action="/" method="post">
             <input name="addTaskInput" type="text" class="form-control" aria-label="addTask"
-                placeholder="Ajouter une tâche">
+                placeholder="Ajouter une tâche" autocomplete="off">
             <button class="btn btn-dark rounded-pill" type="submit">+</button>
 
         </form>
     </div>
+    <!-- Adding a new task to the list -- END -->
 </div>
+
 <%- include('footer'); -%>
