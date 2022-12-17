@@ -14,7 +14,7 @@
         <li class="list-group-item list-group-item-dark">
             <label class="form-check-label stretched-link" for="checkbox<%= i %>">
                 <input class="form-check-input me-1" type="checkbox" value="" id="checkbox<%= i %>">
-                <p class="task"> <%= newTask[i] %></p>
+                <p class="task"> <%= newTask[i].name %> <span style="color:#666"><%= newTask[i].dateCreated %></span></p>
             </label>
         </li>
         <% } %>
