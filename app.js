@@ -49,15 +49,27 @@ const Task = model('Task', Tasks);
 //Getting the data from the Front
 app.get('/', (req, res) => {
 
+    const date = new Date();
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    };
 
+    const dateFormat = date.toLocaleDateString("fr-FR", options);
 
     //TEST
     Task.find({}, (err, allTasks) => {
         if (err) console.log(err);
 
+        //TODO toLocaleDateString("fr-FR", options)
+        //            ^
+        const dateTask = allTasks.dateCreated; 
         res.render('index', {
             newTask: allTasks,
-            itsToday: new Date
+            dateTask: dateTask,
+            itsToday: dateFormat
         });
 
     });
